@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Rajveer Singh Rajput — Azure Cloud & DevOps Engineer</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root{
+  --bg1: #f4fbff;
+  --bg2: #eaf6ff;
+  --accent: #1976D2;
+  --accent-2: #64b5f6;
+  --accent-soft: rgba(25,118,210,0.08);
+  --muted: #6b7280;
+  --text-main: #0f1724;
+  --card-bg: rgba(255,255,255,0.92);
+  --shadow-soft: 0 18px 45px rgba(15,23,42,0.12);
+  --glass-border: rgba(148,163,184,0.35);
+}
+
+/* Dark mode */
+body.dark{
+  --bg1: #020617;
+  --bg2: #020617;
+  --text-main: #e5e7eb;
+  --card-bg: rgba(15,23,42,0.96);
+  --muted: #9ca3af;
+  --accent-soft: rgba(37,99,235,0.18);
+  --glass-border: rgba(148,163,184,0.4);
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.7);
+  background-color:#020617;
+  color:var(--text-main);
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color:var(--text-main);
+  background: radial-gradient(circle at top left,#e3f2ff 0,#f4fbff 25%,#eaf6ff 60%,#e0f0ff 100%);
+  background-attachment: fixed;
+  animation:bg-shift 22s ease-in-out infinite alternate;
+  -webkit-font-smoothing:antialiased;
+}
+body.dark{
+  background: radial-gradient(circle at top left,#020617 0,#020617 40%,#020617 100%);
+  animation:none;
+}
+@keyframes bg-shift{
+  0%{background-position:0% 0%}
+  50%{background-position:50% 30%}
+  100%{background-position:100% 0%}
+}
+
+/* Header / Nav */
+header{
+  position:fixed;left:0;right:0;top:12px;
+  display:flex;justify-content:center;z-index:40;
+}
+.nav{
+  width:min(1120px,94%);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.78);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--glass-border);
+  box-shadow:0 10px 30px rgba(15,23,42,0.15);
+}
+body.dark .nav{
+  background:rgba(15,23,42,0.95);
+}
+.logo{
+  display:flex;align-items:center;gap:8px;
+  font-weight:800;font-size:1rem;color:var(--accent);
+}
+.logo span{color:var(--text-main)}
+.nav-links{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--text-main);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:600;
+}
+.nav-links a:hover{
+  background:var(--accent-soft);
+}
+.nav-actions{
+  display:flex;align-items:center;gap:8px;
+}
+#themeToggle{
+  border:none;border-radius:999px;
+  padding:6px 10px;
+  cursor:pointer;
+  font-size:.9rem;
+  background:var(--accent-soft);
+  color:var(--text-main);
+}
+#themeToggle i{margin-right:4px}
+.cv-btn-small{
+  border-radius:999px;
+  border:1px solid var(--accent);
+  padding:6px 10px;
+  font-size:.85rem;
+  color:var(--accent);
+  background:transparent;
+  cursor:pointer;
+}
+.cv-btn-small:hover{
+  background:var(--accent-soft);
+}
+
+/* Layout */
+main{
+  max-width:1120px;
+  margin:0 auto;
+  padding:100px 16px 80px;
+}
+
+/* HERO */
+.hero{
+  min-height:70vh;
+  display:grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr);
+  gap:32px;
+  align-items:center;
+}
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+}
+
+.hero-left h1{
+  font-size:2.6rem;
+  margin:0 0 6px;
+  letter-spacing:-0.04em;
+}
+
+/* typing line */
+.typing{
+  display:flex;align-items:center;gap:8px;
+  margin:4px 0 10px;
+  font-size:1rem;
+}
+.typing-label{
+  font-weight:600;
+  color:var(--muted);
+}
+#role{
+  font-weight:800;
+  color:var(--accent);
+  min-width:150px;
+  white-space:nowrap;
+}
+.cursor{
+  width:2px;height:18px;background:var(--accent);
+  animation:blink 1s steps(2) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+.hero-left p.lead{
+  margin:10px 0 18px;
+  color:var(--muted);
+  max-width:42rem;
+  font-size:.98rem;
+}
+
+/* CTAs */
+.ctas{
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  font-size:.9rem;
+  text-decoration:none;
+}
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  box-shadow:0 14px 30px rgba(25,118,210,0.28);
+}
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(148,163,184,0.6);
+  color:var(--accent);
+}
+.btn-outline-secondary{
+  background:transparent;
+  border:1px solid rgba(148,163,184,0.4);
+  color:var(--text-main);
+}
+body.dark .btn-outline-secondary{
+  color:var(--muted);
+}
+.badges{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;
+}
+.badge{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:700;
+  background:#e5f1ff;
+}
+body.dark .badge{
+  background:rgba(15,23,42,0.9);
+  border:1px solid rgba(148,163,184,0.4);
+}
+
+/* HERO RIGHT: only floating icons + particles */
+.hero-side{
+  position:relative;
+  min-height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#particles{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+/* Floating tech icons */
+.float-icon{
+  position:absolute;
+  width:54px;height:54px;
+  padding:10px;
+  border-radius:18px;
+  background:white;
+  display:grid;place-items:center;
+  box-shadow:0 18px 40px rgba(15,23,42,0.22);
+  backdrop-filter:blur(10px);
+  animation:float 12s ease-in-out infinite;
+}
+body.dark .float-icon{
+  background:#020617;
+}
+.float-icon img{
+  width:26px;height:26px;object-fit:contain;
+}
+.fi-1{top:6%;left:12%;}
+.fi-2{top:16%;right:8%;animation-delay:1s;}
+.fi-3{bottom:22%;left:8%;animation-delay:2s;}
+.fi-4{bottom:10%;right:12%;animation-delay:3s;}
+.fi-5{top:40%;left:-4%;animation-delay:4s;}
+.fi-6{top:48%;right:-4%;animation-delay:5s;}
+.fi-7{bottom:44%;right:6%;animation-delay:6s;}
+.fi-8{bottom:16%;left:40%;animation-delay:3.3s;}
+.fi-9{top:6%;left:55%;animation-delay:4.2s;}
+.fi-10{top:60%;left:60%;animation-delay:5.2s;}
+.fi-11{bottom:32%;left:16%;animation-delay:6.2s;}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-10px) scale(1.04);}
+  100%{transform:translateY(0) scale(1);}
+}
+
+/* Sections */
+section{margin-top:48px}
+h2{
+  font-size:1.25rem;
+  margin-bottom:12px;
+}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+}
+.skill{
+  padding:14px 14px 12px;
+  border-radius:14px;
+  background:var(--card-bg);
+  box-shadow:var(--shadow-soft);
+  border:1px solid rgba(148,163,184,0.3);
+}
+.skill-top{
+  display:flex;align-items:center;gap:10px;margin-bottom:4px;
+}
+.skill-icon{
+  width:36px;height:36px;
+  border-radius:12px;
+  display:grid;place-items:center;
+  background:rgba(25,118,210,0.08);
+  overflow:hidden;
+}
+.skill-icon img{
+  width:80%;height:80%;object-fit:contain;
+}
+.skill-icon svg{
+  width:22px;height:22px;
+}
+.skill-title{
+  margin:0;
+  font-size:.9rem;
+  font-weight:700;
+}
+.skill-sub{
+  margin:2px 0 0;
+  font-size:.78rem;
+  color:var(--muted);
+}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+.project{
+  position:relative;
+  border-radius:18px;
+  padding:16px 16px 14px;
+  background:var(--card-bg);
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+  border:1px solid rgba(148,163,184,0.45);
+}
+.project::before{
+  content:"";
+  position:absolute;
+  inset:-40%;opacity:0.2;
+  background:radial-gradient(circle at top,var(--accent),transparent 60%);
+}
+.project-inner{
+  position:relative;z-index:1;
+}
+.project-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:6px;
+}
+.project-icon{
+  width:32px;height:32px;border-radius:12px;
+  background:rgba(25,118,210,0.15);
+  display:grid;place-items:center;
+}
+.project h3{
+  margin:0;font-size:1rem;
+}
+.project p{
+  margin:6px 0 8px;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.project-tags{
+  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;
+}
+.tag{
+  padding:3px 8px;
+  border-radius:999px;
+  font-size:.7rem;
+  background:rgba(15,23,42,0.04);
+}
+.project-actions{
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.project:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(15,23,42,0.28);
+}
+
+/* EXPERIENCE */
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+.job{
+  position:relative;
+  padding:14px 14px 12px 16px;
+  border-radius:16px;
+  background:var(--card-bg);
+  box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--accent);
+  border-right:1px solid rgba(148,163,184,0.3);
+}
+.job h4{
+  margin:0 0 4px;
+  font-size:.98rem;
+}
+.job small{
+  color:var(--muted);
+}
+.job p{
+  margin:8px 0 0;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.job-company{
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--accent);
+  margin-bottom:2px;
+}
+
+/* CERTIFICATIONS (flip cards) */
+.certs-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.cert{
+  width:260px;
+  height:150px;
+  perspective:1000px;
+}
+.cert-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .8s;
+}
+.cert-front,
+.cert-back{
+  position:absolute;inset:0;
+  border-radius:16px;
+  backface-visibility:hidden;
+  display:flex;flex-direction:column;
+  padding:14px;
+}
+.cert-front{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:white;
+}
+.cert-back{
+  background:var(--card-bg);
+  border:1px solid rgba(148,163,184,0.4);
+  transform:rotateY(180deg);
+}
+.cert:hover .cert-inner{
+  transform:rotateY(180deg);
+}
+.cert-front-title{
+  font-weight:800;
+  font-size:.95rem;
+}
+.cert-front-sub{
+  font-size:.8rem;
+  opacity:0.9;
+}
+.cert-badge{
+  margin-top:auto;
+  font-size:.75rem;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,0,0,0.18);
+  padding:4px 8px;
+  border-radius:999px;
+}
+.cert-back-title{
+  font-weight:700;
+  font-size:.9rem;
+  margin-bottom:4px;
+}
+.cert-back-body{
+  font-size:.78rem;
+  color:var(--muted);
+}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr);
+  gap:18px;
+}
+@media(max-width:800px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+.contact-form{
+  padding:16px 16px 14px;
+  background:var(--card-bg);
+  border-radius:16px;
+  box-shadow:var(--shadow-soft);
+}
+.field{
+  display:flex;flex-direction:column;
+  margin-bottom:10px;
+}
+.field label{
+  font-size:.85rem;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.field input,.field textarea{
+  border-radius:10px;
+  border:1px solid rgba(148,163,184,0.6);
+  padding:8px 10px;
+  font-family:inherit;
+  font-size:.85rem;
+  background:rgba(255,255,255,0.9);
+}
+body.dark .field input,
+body.dark .field textarea{
+  background:#020617;
+  color:var(--text-main);
+}
+
+.contact-aside{
+  padding:16px;
+  border-radius:16px;
+  background:var(--card-bg);
+  box-shadow:var(--shadow-soft);
+  font-size:.9rem;
+}
+.socials-row{
+  display:flex;gap:8px;margin-top:8px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:40px;
+  font-size:.8rem;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* Small*/
+@media(max-width:640px){
+  header{top:6px}
+  .nav{padding:8px 10px;gap:6px;flex-wrap:wrap}
+  .hero{margin-top:10px}
+  .hero-side{min-height:260px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <i class="fa-solid fa-cloud"></i>
+      <span>Rajveer Singh Rajput</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggle"><i class="fa-solid fa-moon"></i>Dark</button>
+      <button class="cv-btn-small" onclick="window.open('Rajveer-Singh-Rajput-CV.pdf','_blank')">
+        <i class="fa-solid fa-file-arrow-down"></i> CV
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <h1>Rajveer Singh Rajput</h1>
+
+      <div class="typing">
+        <span class="typing-label">Role:</span>
+        <span id="role">Azure Cloud Engineer</span>
+        <span class="cursor"></span>
+      </div>
+
+      <p class="lead">
+        Azure Cloud Engineer | DevOps Engineer. I build scalable Azure platforms, automate CI/CD pipelines, and deploy containerized workloads with AKS, Docker, and modern DevOps practices.
+      </p>
+
+      <div class="ctas">
+        <a class="btn btn-primary" href="#projects">
+          <i class="fa-solid fa-rocket"></i> View Projects
+        </a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/rajveersinghrajput" target="_blank">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a class="btn btn-outline-secondary" href="Rajveer-Singh-Rajput-CV.pdf" target="_blank">
+          <i class="fa-solid fa-file-arrow-down"></i> Download CV
+        </a>
+      </div>
+
+      <div class="badges">
+        <div class="badge">1+ years</div>
+        <div class="badge">Azure • AKS • DevOps</div>
+        <div class="badge">Docker • Kubernetes</div>
+        <div class="badge"><i class="fa-solid fa-location-dot"></i> Indore, India</div>
+      </div>
+    </div>
+
+    <!-- Right side: only particles + floating icons -->
+    <aside class="hero-side" aria-hidden="true">
+      <canvas id="particles"></canvas>
+
+      <!-- Floating DevOps & Cloud icons with original logos -->
+      <div class="float-icon fi-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"></div>
+      <div class="float-icon fi-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
+      <div class="float-icon fi-3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
+      <div class="float-icon fi-4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"></div>
+      <div class="float-icon fi-5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform"></div>
+      <div class="float-icon fi-6"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+      <div class="float-icon fi-7"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
+      <div class="float-icon fi-8"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS"></div>
+      <div class="float-icon fi-9"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins"></div>
+      <div class="float-icon fi-10"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible"></div>
+      <div class="float-icon fi-11"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg" alt="Helm"></div>
+      <!-- You can add more devicon-based floating icons if you want -->
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p style="max-width:720px;font-size:.95rem;color:var(--muted)">
+      I'm an Azure-focused Cloud & DevOps Engineer who enjoys building reliable, automated infrastructure. I work with services like Application Gateway, App Service, API Management, Azure Functions, Key Vault, Cosmos DB, and Container Instances to deliver secure and scalable applications. I like turning manual, repetitive work into clean automation using Git, Terraform, and CI/CD pipelines.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills & Azure Services</h2>
+    <div class="skills-grid">
+
+      <!-- Core tools with original logos -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure Cloud">
+          </div>
+          <p class="skill-title">Azure Cloud</p>
+        </div>
+        <p class="skill-sub">Core Azure services, networking & security</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+          </div>
+          <p class="skill-title">Docker</p>
+        </div>
+        <p class="skill-sub">Containerization & image management</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="AKS">
+          </div>
+          <p class="skill-title">AKS / Kubernetes</p>
+        </div>
+        <p class="skill-sub">Cluster setup & workload deployment</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
+          </div>
+          <p class="skill-title">Terraform</p>
+        </div>
+        <p class="skill-sub">Infrastructure as Code on Azure</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+          </div>
+          <p class="skill-title">Git</p>
+        </div>
+        <p class="skill-sub">Version control & branching strategies</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+          </div>
+          <p class="skill-title">GitHub</p>
+        </div>
+        <p class="skill-sub">Repos, collaboration & workflows</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+          </div>
+          <p class="skill-title">Linux</p>
+        </div>
+        <p class="skill-sub">Shell, servers & administration</p>
+      </div>
+
+      <!-- Azure services (your list only) -->
+
+      <!-- App Gateway -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="5" width="16" height="4" rx="1" fill="white"/>
+              <rect x="4" y="15" width="16" height="4" rx="1" fill="white" opacity="0.6"/>
+              <path d="M12 9v6" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="skill-title">App Gateway</p>
+        </div>
+        <p class="skill-sub">Layer-7 traffic routing & security</p>
+      </div>
+
+      <!-- App Service -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="6" y="4" width="12" height="14" rx="2" fill="white"/>
+              <circle cx="12" cy="10" r="2" fill="#1976D2"/>
+              <rect x="10" y="15" width="4" height="1.8" rx="0.6" fill="#1976D2" opacity="0.9"/>
+            </svg>
+          </div>
+          <p class="skill-title">App Service</p>
+        </div>
+        <p class="skill-sub">Hosting web apps & APIs</p>
+      </div>
+
+      <!-- Functions -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M10 4l-2 5h3l-3 7" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M15 4l-2 5h3l-3 7" stroke="white" stroke-width="1.3" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </div>
+          <p class="skill-title">Azure Functions</p>
+        </div>
+        <p class="skill-sub">Serverless events & automation</p>
+      </div>
+
+      <!-- API Management -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="7" width="5" height="10" rx="1" fill="white"/>
+              <rect x="10" y="7" width="5" height="10" rx="1" fill="white" opacity="0.8"/>
+              <rect x="16" y="7" width="4" height="10" rx="1" fill="white" opacity="0.6"/>
+            </svg>
+          </div>
+          <p class="skill-title">API Management</p>
+        </div>
+        <p class="skill-sub">Secure APIs, throttling & policies</p>
+      </div>
+
+      <!-- Key Vault -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="11" r="4" stroke="white" fill="none"/>
+              <circle cx="12" cy="11" r="1.3" fill="white"/>
+              <rect x="11" y="15" width="2" height="4" rx="1" fill="white"/>
+            </svg>
+          </div>
+          <p class="skill-title">Key Vault</p>
+        </div>
+        <p class="skill-sub">Secrets, keys & certificate storage</p>
+      </div>
+
+      <!-- Cosmos DB -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3" fill="white"/>
+              <ellipse cx="12" cy="12" rx="7" ry="3.5" stroke="white" fill="none"/>
+              <ellipse cx="12" cy="12" rx="7" ry="3.5" stroke="white" fill="none" transform="rotate(40 12 12)" opacity="0.7"/>
+            </svg>
+          </div>
+          <p class="skill-title">Cosmos DB</p>
+        </div>
+        <p class="skill-sub">NoSQL & globally distributed data</p>
+      </div>
+
+      <!-- Container Instances -->
+      <div class="skill">
+        <div class="skill-top">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="6" width="14" height="9" rx="2" fill="white"/>
+              <rect x="7" y="8" width="4" height="5" rx="1" fill="#1976D2"/>
+              <rect x="13" y="8" width="4" height="5" rx="1" fill="#1976D2" opacity="0.8"/>
+            </svg>
+          </div>
+          <p class="skill-title">Container Instances</p>
+        </div>
+        <p class="skill-sub">Serverless container workloads</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="projects-grid">
+      <article class="project">
+        <div class="project-inner">
+          <div class="project-header">
+            <div class="project-icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <h3>End-to-End AKS CI/CD on Azure</h3>
+          </div>
+          <p>
+            Built a CI/CD pipeline that builds Docker images, pushes to ACR, and deploys to AKS using YAML pipelines and Terraform IaC. Included blue-green deployments and rollback.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Azure</span>
+            <span class="tag">AKS</span>
+            <span class="tag">ACR</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">CI/CD</span>
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-outline-secondary" onclick="alert('Add GitHub repo link here')">
+              <i class="fa-brands fa-github"></i> View Code
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-inner">
+          <div class="project-header">
+            <div class="project-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>App Gateway + App Service Architecture</h3>
+          </div>
+          <p>
+            Configured Azure Application Gateway in front of App Service with path-based routing and SSL termination to securely expose multiple backend apps behind a single endpoint.
+          </p>
+          <div class="project-tags">
+            <span class="tag">App Gateway</span>
+            <span class="tag">App Service</span>
+            <span class="tag">TLS</span>
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-outline-secondary" onclick="alert('Add case study or docs link here')">
+              <i class="fa-solid fa-file-lines"></i> Case Study
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-inner">
+          <div class="project-header">
+            <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>Azure Functions & API Management</h3>
+          </div>
+          <p>
+            Exposed serverless Functions through API Management with rate limiting and authentication, acting as a secure backend for a web application.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Functions</span>
+            <span class="tag">API Management</span>
+            <span class="tag">Serverless</span>
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-outline-secondary" onclick="alert('Add demo / documentation link here')">
+              <i class="fa-solid fa-eye"></i> View Details
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-company">VSN International Pvt. Ltd.</div>
+        <h4>Cloud Engineer</h4>
+        <small>Dec 2024 – Present · Indore, Madhya Pradesh (On-site)</small>
+        <p>
+          Working on Azure cloud infrastructure, CI/CD pipelines, AKS deployments, and monitoring. Supporting migration of workloads into Azure using Terraform and DevOps best practices.
+        </p>
+      </div>
+      <div class="job">
+        <div class="job-company">iTrainU Technologies</div>
+        <h4>DevOps Engineer (Trainee)</h4>
+        <small>Jun 2023 – Nov 2024 · Indore, Madhya Pradesh</small>
+        <p>
+          Built CI/CD pipelines with Jenkins and Git, containerized apps with Docker, and practiced Kubernetes deployments. Worked on AWS and Azure DevOps labs to strengthen cloud skills.
+        </p>
+      </div>
+      <div class="job">
+        <div class="job-company">AWS DevOps Trainee Experience</div>
+        <h4>Cloud & DevOps Trainee</h4>
+        <small>Hands-on Training & Personal Projects</small>
+        <p>
+          Practiced AWS services (EC2, S3, VPC) and DevOps tools to build end-to-end pipelines, focusing on automation, monitoring, and infrastructure reliability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <h2>Certifications</h2>
+    <div class="certs-grid">
+
+      <div class="cert">
+        <div class="cert-inner">
+          <div class="cert-front">
+            <div class="cert-front-title">AI-900</div>
+            <div class="cert-front-sub">Microsoft Azure AI Fundamentals</div>
+            <div class="cert-badge">
+              <i class="fa-solid fa-certificate"></i> Microsoft Certified
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">AI-900 · Azure AI Fundamentals</div>
+            <div class="cert-back-body">
+              Validates understanding of AI workloads, responsible AI, and how to use Azure AI services (Cognitive Services, Azure OpenAI) in practical solutions.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="cert-inner">
+          <div class="cert-front">
+            <div class="cert-front-title">AZ-900</div>
+            <div class="cert-front-sub">Microsoft Azure Fundamentals</div>
+            <div class="cert-badge">
+              <i class="fa-solid fa-certificate"></i> Microsoft Certified
+            </div>
+          </div>
+          <div class="cert-back">
+            <div class="cert-back-title">AZ-900 · Azure Fundamentals</div>
+            <div class="cert-back-body">
+              Covers Azure core services, cloud concepts, security, pricing, and governance — providing a strong base for Azure cloud and DevOps roles.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="you@domain.com" />
+          </div>
+          <div class="field">
+            <label for="msg">Message</label>
+            <textarea id="msg" rows="4" required placeholder="Say hi, ask a question, or share ideas..."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-aside">
+        <h3 style="margin-top:0;font-size:1rem;">Let's connect</h3>
+        <p>
+          I enjoy learning, sharing ideas, and collaborating on cloud and DevOps topics. Feel free to reach out if you want to discuss Azure, DevOps, or tech in general.
+        </p>
+        <p style="margin-top:10px;font-weight:600">Find me online</p>
+        <div class="socials-row">
+          <a class="btn btn-outline-secondary" href="https://www.linkedin.com/in/rajveersinghrajput" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a class="btn btn-outline-secondary" href="#" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rajveer Singh Rajput · Azure Cloud & DevOps Engineer
+  </footer>
+
+</main>
+
+<script>
+// ---- Typing effect for roles (Azure Cloud Engineer / DevOps Engineer) ----
+const roles = ["Azure Cloud Engineer", "DevOps Engineer"];
+let roleIndex = 0;
+let charIndex = 0;
+let typingForward = true;
+const roleEl = document.getElementById("role");
+
+function typeLoop(){
+  const current = roles[roleIndex];
+  if(typingForward){
+    charIndex++;
+    roleEl.textContent = current.slice(0,charIndex);
+    if(charIndex === current.length){
+      typingForward = false;
+      setTimeout(typeLoop, 1000);
+      return;
+    }
+  }else{
+    charIndex--;
+    roleEl.textContent = current.slice(0,charIndex);
+    if(charIndex === 0){
+      typingForward = true;
+      roleIndex = (roleIndex+1) % roles.length;
+    }
+  }
+  setTimeout(typeLoop, typingForward ? 70 : 40);
+}
+typeLoop();
+
+// ---- Particles background for hero card ----
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+function resizeCanvas(){
+  if(!canvas) return;
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const particles = [];
+for(let i=0;i<40;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:1+Math.random()*2,
+    dx:(Math.random()-0.5)*0.6,
+    dy:(Math.random()-0.5)*0.6,
+    a:0.2+Math.random()*0.5
+  });
+}
+function draw(){
+  if(!canvas) return;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x += p.dx;
+    p.y += p.dy;
+    if(p.x<0) p.x=canvas.width;
+    if(p.x>canvas.width) p.x=0;
+    if(p.y<0) p.y=canvas.height;
+    if(p.y>canvas.height) p.y=0;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = "rgba(25,118,210,"+p.a+")";
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+// ---- Dark mode toggle ----
+const themeBtn = document.getElementById("themeToggle");
+const storedTheme = localStorage.getItem("theme");
+if(storedTheme === "dark"){
+  document.body.classList.add("dark");
+  themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>Light';
+}
+themeBtn.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  themeBtn.innerHTML = isDark
+    ? '<i class="fa-solid fa-sun"></i>Light'
+    : '<i class="fa-solid fa-moon"></i>Dark';
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+// ---- Contact form (dummy) ----
+document.getElementById("contactForm").addEventListener("submit",(e)=>{
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const msg = document.getElementById("msg").value.trim();
+  if(!name || !email || !msg){
+    alert("Please fill all fields.");
+    return;
+  }
+  alert("Thanks "+name+"! Your message has been received.");
+  e.target.reset();
+});
+
+// ---- Year ----
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
